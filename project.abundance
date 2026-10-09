@@ -178,8 +178,7 @@
           "ioValues": [
             {
               "name": "diameter",
-              "ioValue": 0.13,
-              "currentEquation": "0.13"
+              "ioValue": 0.13
             }
           ]
         },
@@ -195,8 +194,7 @@
             },
             {
               "name": "height",
-              "ioValue": 1,
-              "currentEquation": "1"
+              "ioValue": 1
             }
           ]
         },
@@ -256,8 +254,7 @@
             },
             {
               "name": "Angle",
-              "ioValue": 90,
-              "currentEquation": "90"
+              "ioValue": 90
             }
           ],
           "topLevel": false,
@@ -1400,15 +1397,6 @@
       ],
       "orientations": [
         {
-          "downwardFaceIndex": 2,
-          "faceCount": 20,
-          "faceNormal": [
-            0,
-            0,
-            -1
-          ]
-        },
-        {
           "downwardFaceIndex": 1,
           "faceCount": 34,
           "faceNormal": [
@@ -1436,7 +1424,7 @@
           ]
         }
       ],
-      "orientationsForHashed": 4
+      "orientationsForHashed": 3
     },
     {
       "atomType": "Assembly",
@@ -1458,10 +1446,6 @@
         },
         {
           "name": "Shape3",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Shape4",
           "ioValue": "__GEOMETRY_INPUT__"
         }
       ]
@@ -1542,11 +1526,6 @@
       "ap2Name": "remove",
       "ap1ID": "id-1240",
       "ap2ID": "id-1281"
-    },
-    {
-      "ap2Name": "Shape 1",
-      "ap1ID": "id-1281",
-      "ap2ID": "id-877"
     },
     {
       "ap2Name": "diameter",
