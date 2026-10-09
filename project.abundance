@@ -107,7 +107,8 @@
             },
             {
               "name": "xDist",
-              "ioValue": 0
+              "ioValue": 0,
+              "currentEquation": "0"
             },
             {
               "name": "yDist",
@@ -115,7 +116,8 @@
             },
             {
               "name": "zDist",
-              "ioValue": 0
+              "ioValue": 7.333333333333333,
+              "currentEquation": "height / 3"
             }
           ]
         }
@@ -140,6 +142,11 @@
           "ap2Name": "geometry",
           "ap1ID": "id-1073",
           "ap2ID": "id-1077"
+        },
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-1077",
+          "ap2ID": "id-1040"
         }
       ],
       "fileTypeVersion": 1
@@ -1133,7 +1140,7 @@
         },
         {
           "downwardFaceIndex": 1,
-          "faceCount": 26,
+          "faceCount": 34,
           "faceNormal": [
             -1,
             1.1102230246251565e-16,
@@ -1142,15 +1149,24 @@
         },
         {
           "downwardFaceIndex": 1,
-          "faceCount": 22,
+          "faceCount": 30,
           "faceNormal": [
             0,
             -1,
             1.1102230246251565e-16
           ]
+        },
+        {
+          "downwardFaceIndex": 4,
+          "faceCount": 6,
+          "faceNormal": [
+            0,
+            0,
+            -1
+          ]
         }
       ],
-      "orientationsForHashed": 3
+      "orientationsForHashed": 4
     },
     {
       "atomType": "Assembly",
@@ -1172,6 +1188,10 @@
         },
         {
           "name": "Shape3",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Shape4",
           "ioValue": "__GEOMETRY_INPUT__"
         }
       ]
@@ -1207,27 +1227,35 @@
       "placements": [
         [
           {
-            "id": 1,
-            "rotate": 0,
-            "translate": {
-              "x": -12.600000381469727,
-              "y": 0.4000000059604645
-            }
-          },
-          {
             "id": 2,
-            "rotate": 180,
+            "rotate": 90,
             "translate": {
-              "x": 43.27000045776367,
-              "y": 31.139999389648438
+              "x": 22.399999618530273,
+              "y": -25.510000228881836
             }
           },
           {
             "id": 0,
-            "rotate": 90,
+            "rotate": 270,
             "translate": {
-              "x": 12.359999656677246,
-              "y": 31.64999771118164
+              "x": 3.5199999809265137,
+              "y": 24.329999923706055
+            }
+          },
+          {
+            "id": 3,
+            "rotate": 180,
+            "translate": {
+              "x": 60.83000183105469,
+              "y": 34.46999740600586
+            }
+          },
+          {
+            "id": 1,
+            "rotate": 270,
+            "translate": {
+              "x": 0.4000000059604645,
+              "y": 59.68000030517578
             }
           }
         ]
@@ -1235,6 +1263,11 @@
     }
   ],
   "allConnectors": [
+    {
+      "ap2Name": "Shape3",
+      "ap1ID": "id-1038",
+      "ap2ID": "id-877"
+    },
     {
       "ap2Name": "diameter",
       "ap1ID": "id-703",
