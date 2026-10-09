@@ -18,8 +18,8 @@
   "allAtoms": [
     {
       "atomType": "Molecule",
-      "x": 0.4,
-      "y": 0.7,
+      "x": 0.3,
+      "y": 0.6,
       "uniqueID": "id-1038",
       "name": "footrest",
       "topLevel": false,
@@ -107,8 +107,7 @@
             },
             {
               "name": "xDist",
-              "ioValue": 0,
-              "currentEquation": "0"
+              "ioValue": 0
             },
             {
               "name": "yDist",
@@ -147,6 +146,66 @@
           "ap2Name": "number or geometry",
           "ap1ID": "id-1077",
           "ap2ID": "id-1040"
+        }
+      ],
+      "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Molecule",
+      "x": 0.4,
+      "y": 0.8,
+      "uniqueID": "id-1240",
+      "name": "screwholes",
+      "topLevel": false,
+      "allAtoms": [
+        {
+          "atomType": "Output",
+          "x": 1,
+          "y": 0.5,
+          "uniqueID": "id-1242",
+          "ioValues": [
+            {
+              "name": "number or geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ]
+        },
+        {
+          "atomType": "Circle",
+          "x": 0.2,
+          "y": 0.7,
+          "uniqueID": "id-1244",
+          "ioValues": [
+            {
+              "name": "diameter",
+              "ioValue": 0.13,
+              "currentEquation": "0.13"
+            }
+          ]
+        },
+        {
+          "atomType": "Extrude",
+          "x": 0.3,
+          "y": 0.7,
+          "uniqueID": "id-1247",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "height",
+              "ioValue": 1,
+              "currentEquation": "1"
+            }
+          ]
+        }
+      ],
+      "allConnectors": [
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-1244",
+          "ap2ID": "id-1247"
         }
       ],
       "fileTypeVersion": 1
@@ -262,8 +321,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.2,
-          "y": 0.6,
+          "x": 0.1,
+          "y": 0.4,
           "uniqueID": "id-735",
           "name": "Trapezoid",
           "ioValues": [
