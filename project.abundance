@@ -1397,6 +1397,15 @@
       ],
       "orientations": [
         {
+          "downwardFaceIndex": 2,
+          "faceCount": 20,
+          "faceNormal": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
           "downwardFaceIndex": 1,
           "faceCount": 34,
           "faceNormal": [
@@ -1424,7 +1433,7 @@
           ]
         }
       ],
-      "orientationsForHashed": 3
+      "orientationsForHashed": 4
     },
     {
       "atomType": "Assembly",
@@ -1446,6 +1455,10 @@
         },
         {
           "name": "Shape3",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "Shape4",
           "ioValue": "__GEOMETRY_INPUT__"
         }
       ]
@@ -1526,6 +1539,11 @@
       "ap2Name": "remove",
       "ap1ID": "id-1240",
       "ap2ID": "id-1281"
+    },
+    {
+      "ap2Name": "Shape 1",
+      "ap1ID": "id-1281",
+      "ap2ID": "id-877"
     },
     {
       "ap2Name": "diameter",
