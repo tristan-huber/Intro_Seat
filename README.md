@@ -7,7 +7,7 @@
 ## Inputs
 
 - **height** (number)
-- **width** (undefined)
+- **width** (number)
 
 
 
