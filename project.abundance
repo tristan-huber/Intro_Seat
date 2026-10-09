@@ -18,8 +18,8 @@
   "allAtoms": [
     {
       "atomType": "Molecule",
-      "x": 0.3,
-      "y": 0.6,
+      "x": 0.6,
+      "y": 0.8,
       "uniqueID": "id-1038",
       "name": "footrest",
       "topLevel": false,
@@ -153,7 +153,7 @@
     {
       "atomType": "Molecule",
       "x": 0.4,
-      "y": 0.8,
+      "y": 0.7,
       "uniqueID": "id-1240",
       "name": "screwholes",
       "topLevel": false,
@@ -203,7 +203,7 @@
         {
           "atomType": "Move",
           "x": 0.4,
-          "y": 0.7,
+          "y": 0.8,
           "uniqueID": "id-1251",
           "ioValues": [
             {
@@ -212,8 +212,8 @@
             },
             {
               "name": "xDist",
-              "ioValue": 7.399999999999999,
-              "currentEquation": "width * 0.7 - 1"
+              "ioValue": 3.1999999999999993,
+              "currentEquation": "width * 0.35 - 1"
             },
             {
               "name": "yDist",
@@ -221,9 +221,159 @@
             },
             {
               "name": "zDist",
-              "ioValue": 0
+              "ioValue": 21.75,
+              "currentEquation": "height - 0.25"
             }
           ]
+        },
+        {
+          "atomType": "Color",
+          "x": 0.5,
+          "y": 0.3,
+          "uniqueID": "id-1257",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            }
+          ],
+          "selectedColor": "Keep Out"
+        },
+        {
+          "atomType": "GitHubMolecule",
+          "x": 0.6,
+          "y": 0.6,
+          "uniqueID": "id-1266",
+          "name": "RotatePattern",
+          "ioValues": [
+            {
+              "name": "Shape",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "Number",
+              "ioValue": 4
+            },
+            {
+              "name": "Angle",
+              "ioValue": 90,
+              "currentEquation": "90"
+            }
+          ],
+          "topLevel": false,
+          "allAtoms": [
+            {
+              "atomType": "Output",
+              "x": 1,
+              "y": 0.5,
+              "uniqueID": "id-1261",
+              "ioValues": [
+                {
+                  "name": "number or geometry",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                }
+              ]
+            },
+            {
+              "atomType": "Input",
+              "x": 0,
+              "y": 0.2,
+              "uniqueID": "id-1262",
+              "name": "Shape",
+              "type": "geometry",
+              "options": []
+            },
+            {
+              "atomType": "Input",
+              "x": 0,
+              "y": 0.2,
+              "uniqueID": "id-1263",
+              "name": "Number",
+              "options": []
+            },
+            {
+              "atomType": "Input",
+              "x": 0,
+              "y": 0.3,
+              "uniqueID": "id-1264",
+              "name": "Angle",
+              "options": []
+            },
+            {
+              "atomType": "Code",
+              "x": 0.6,
+              "y": 0.4,
+              "uniqueID": "id-1265",
+              "ioValues": [
+                {
+                  "name": "shape",
+                  "ioValue": "__GEOMETRY_INPUT__"
+                },
+                {
+                  "name": "count",
+                  "ioValue": 4
+                },
+                {
+                  "name": "angle",
+                  "ioValue": 90
+                }
+              ],
+              "interpreterVersion": 1,
+              "code": "function run(\n  shape: Assembly,\n  count: number = 3,\n  angle: number = 20,\n) {\n  const axis: [number, number, number] = [0, 0, 1];\n  const center: [number, number, number] = [0, 0, 0];\n  const center2D: [number, number] = [center[0], center[1]];\n  const anglePerCopy = angle;\n  const shapesArray: Assembly[] = [];\n\n  for (let i = 0; i < count; i++) {\n    const rotationAngle = anglePerCopy * i;\n\n    const rotatedAssembly = new Assembly(shape).onLeafs((leaf) => {\n      if (leaf.is2D()) {\n        // For 2D shapes, rotating about the plane normal is done entirely\n        // within the plane. Do NOT also pivot the plane or the rotation doubles.\n        leaf.geometry = leaf.geometry.clone().rotate(rotationAngle, center2D);\n      } else {\n        leaf.geometry = leaf.geometry.clone().rotate(rotationAngle, center, axis);\n      }\n      return leaf;\n    });\n\n    shapesArray.push(rotatedAssembly);\n  }\n\n  return shapesArray;\n}",
+              "compiledCode": "\"use strict\";\nfunction run(shape, count = 3, angle = 20) {\n    const axis = [0, 0, 1];\n    const center = [0, 0, 0];\n    const center2D = [center[0], center[1]];\n    const anglePerCopy = angle;\n    const shapesArray = [];\n    for (let i = 0; i < count; i++) {\n        const rotationAngle = anglePerCopy * i;\n        const rotatedAssembly = new Assembly(shape).onLeafs((leaf) => {\n            if (leaf.is2D()) {\n                // For 2D shapes, rotating about the plane normal is done entirely\n                // within the plane. Do NOT also pivot the plane or the rotation doubles.\n                leaf.geometry = leaf.geometry.clone().rotate(rotationAngle, center2D);\n            }\n            else {\n                leaf.geometry = leaf.geometry.clone().rotate(rotationAngle, center, axis);\n            }\n            return leaf;\n        });\n        shapesArray.push(rotatedAssembly);\n    }\n    return shapesArray;\n}\n"
+            }
+          ],
+          "allConnectors": [
+            {
+              "ap2Name": "shape",
+              "ap1ID": "id-1262",
+              "ap2ID": "id-1265"
+            },
+            {
+              "ap2Name": "count",
+              "ap1ID": "id-1263",
+              "ap2ID": "id-1265"
+            },
+            {
+              "ap2Name": "angle",
+              "ap1ID": "id-1264",
+              "ap2ID": "id-1265"
+            },
+            {
+              "ap2Name": "number or geometry",
+              "ap1ID": "id-1265",
+              "ap2ID": "id-1261"
+            }
+          ],
+          "parentRepo": {
+            "lastFoundGit": "2026-10-09T18:23:38.944Z",
+            "privateRepo": false,
+            "repoName": "RotatePattern",
+            "dateCreated": "2024-10-01T18:14:59Z",
+            "likes": 0,
+            "pngURL": "https://raw.githubusercontent.com/BarbourSmith/RotatePattern/master/project.png?sanitize=true",
+            "readme": "https://raw.githubusercontent.com/BarbourSmith/RotatePattern/master/README.md?sanitize=true",
+            "yyyy": 2024,
+            "topMoleculeID": "",
+            "userRanking": 0.2,
+            "userSetAsThumbnail": false,
+            "githubMoleculesUsed": [],
+            "html_url": "https://github.com/BarbourSmith/RotatePattern",
+            "topics": [],
+            "pullRequests": [],
+            "forks": 1,
+            "dateModified": "2026-09-11T21:25:18Z",
+            "ranking": 3,
+            "searchField": "rotatepattern barboursmith  ",
+            "owner": "BarbourSmith",
+            "description": "",
+            "contentURL": "https://raw.githubusercontent.com/BarbourSmith/RotatePattern/master/project.abundance?sanitize=true",
+            "svgURL": "https://raw.githubusercontent.com/BarbourSmith/RotatePattern/master/project.svg?sanitize=true",
+            "isLocal": false
+          },
+          "unitsKey": "Inches",
+          "fileTypeVersion": 1,
+          "lastReloadedFromGithubAt": 1791580805394
         }
       ],
       "allConnectors": [
@@ -236,9 +386,40 @@
           "ap2Name": "geometry",
           "ap1ID": "id-1247",
           "ap2ID": "id-1251"
+        },
+        {
+          "ap2Name": "geometry",
+          "ap1ID": "id-1251",
+          "ap2ID": "id-1257"
+        },
+        {
+          "ap2Name": "Shape",
+          "ap1ID": "id-1257",
+          "ap2ID": "id-1266"
+        },
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-1266",
+          "ap2ID": "id-1242"
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Difference",
+      "x": 0.5,
+      "y": 0.5,
+      "uniqueID": "id-1281",
+      "ioValues": [
+        {
+          "name": "retain",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "remove",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ]
     },
     {
       "atomType": "Output",
@@ -1219,12 +1400,12 @@
       ],
       "orientations": [
         {
-          "downwardFaceIndex": 1,
-          "faceCount": 16,
+          "downwardFaceIndex": 2,
+          "faceCount": 20,
           "faceNormal": [
             0,
             0,
-            1
+            -1
           ]
         },
         {
@@ -1358,6 +1539,16 @@
       "ap2ID": "id-877"
     },
     {
+      "ap2Name": "remove",
+      "ap1ID": "id-1240",
+      "ap2ID": "id-1281"
+    },
+    {
+      "ap2Name": "Shape 1",
+      "ap1ID": "id-1281",
+      "ap2ID": "id-877"
+    },
+    {
       "ap2Name": "diameter",
       "ap1ID": "id-703",
       "ap2ID": "id-706"
@@ -1378,9 +1569,9 @@
       "ap2ID": "id-709"
     },
     {
-      "ap2Name": "Shape 1",
+      "ap2Name": "retain",
       "ap1ID": "id-715",
-      "ap2ID": "id-877"
+      "ap2ID": "id-1281"
     },
     {
       "ap2Name": "geometry",
